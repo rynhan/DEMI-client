@@ -11,6 +11,12 @@ const inputInitHeight = chatInput.scrollHeight; // Retrieves the initial height 
 // // Get data attribute of script tag
 // const user_sub = document.currentScript.getAttribute('data-uid');
 
+// document.getElementById("widget-header").innerHTML =
+// document.getElementById("widget-version").innerHTML =
+// document.getElementById("widget-disclaimer").innerHTML =
+// document.getElementById("widget-initialmessage").innerHTML =
+
+
 
 
 
