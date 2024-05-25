@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client Page</title>    
+    </head>
+    <body>
+        <script>
+            (function() {
+    
+                var style = document.createElement('link');
+                style.type = 'text/css';
+                style.rel = 'stylesheet';
+                style.href = "https://rynhan.github.io/DEMI-client/widget.css"
+                document.getElementsByTagName('head')[0].appendChild(style);
+    
+                fetch('https://rynhan.github.io/DEMI-client/widget.html').then(response => {  
+                    return response.text()
+                }).then(data=>{
+                    document.body.insertAdjacentHTML( 'beforeend', data );
+                    var script = document.createElement('script');
+                    script.src = "https://rynhan.github.io/DEMI-client/widget.js";
+                    script.dataset.uid = "0fb90d349d44";
+                    script.async = true;
+                    script.defer = true;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                })
+    
+            })()
+        </script>
+    </body>
+</html>
