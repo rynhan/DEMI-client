@@ -15,6 +15,7 @@ const inputInitHeight = chatInput.scrollHeight; // Retrieves the initial height 
 // document.getElementById("widget-version").innerHTML =
 // document.getElementById("widget-disclaimer").innerHTML =
 // document.getElementById("widget-initialmessage").innerHTML =
+// document.getElementsByClassName("widget-image").src = 
 
 
 
@@ -131,7 +132,7 @@ const generateResponse = (incomingChatLi) => {
     const messageElement = incomingChatLi.querySelector("div");
 
     // URL for the chat server endpoint
-    var url = "https://demi-ai-server-production.up.railway.app/chat    "; // <--------------------------- DEMI-nodeV3 URL
+    var url = "https://demi-server-demi-dev-2bd13100.koyeb.app/chat"; // <--------------------------- DEMI-nodeV3 URL
 
     // Fetch data from the chat server
     fetch(url, {
