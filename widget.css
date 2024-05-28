@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
-    --background-theme: #6558F6 ;
+    --background-theme-vlyq: #6558F6 ;
 }
 
 
@@ -34,7 +34,7 @@
     justify-content: center;
     outline: none;
     cursor: pointer;
-    background: var(--background-theme);
+    background: var(--background-theme-vlyq);
     border-radius: 50%;
     transition: all 0.2s ease;
 
@@ -164,7 +164,7 @@
     line-height: 28px;
     color: #fff;
     align-self: flex-end;
-    background: var(--background-theme);
+    background: var(--background-theme-vlyq);
     text-align: center;
     border-radius: 50%;
     margin: 0 5px 1px 0;
@@ -192,7 +192,7 @@
     line-height: 20px;
     padding: 12px 15px;
     border-radius: 18px 18px 0 18px;
-    background: var(--background-theme);
+    background: var(--background-theme-vlyq);
 
     /* ADDITIONAL */
     /* https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap */
@@ -239,7 +239,7 @@
     height: 52px;
     width: 48px;
     line-height: 70px;
-    color: var(--background-theme);
+    color: var(--background-theme-vlyq);
     font-size: 1.5rem;
     cursor: pointer;
     /* visibility: hidden; */
