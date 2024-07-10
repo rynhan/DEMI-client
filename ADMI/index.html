@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client Page</title>    
+    </head>
+    <body>
+        <script>
+            (function() {
+    
+                var style = document.createElement('link');
+                style.type = 'text/css';
+                style.rel = 'stylesheet';
+                style.href = "https://rynhan.github.io/DEMI-client/widget.css"
+                document.getElementsByTagName('head')[0].appendChild(style);
+    
+                fetch('https://rynhan.github.io/DEMI-client/widget.html').then(response => {  
+                    return response.text()
+                }).then(data=>{
+                    document.body.insertAdjacentHTML( 'beforeend', data );
+                    var script = document.createElement('script');
+                    script.src = "https://rynhan.github.io/DEMI-client/widget.js";
+                    script.dataset.uid = "c9e59ac158b0";
+                    script.async = true;
+                    script.defer = true;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                })
+    
+            })()
+            document.getElementById("widget-header").innerHTML = "ADMI";
+            // document.getElementById("widget-version").innerHTML =
+            // document.getElementById("widget-disclaimer").innerHTML =
+            document.getElementById("widget-initialmessage").innerHTML = "Hi there, I'm ADMI, your Admission AI Assistant. How can I assist you today?";
+            // document.getElementsByClassName("widget-image").src = 
+        </script>
+    </body>
+</html>
