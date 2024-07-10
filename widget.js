@@ -8,8 +8,8 @@ const chatBotCloseBtn = document.querySelector(".close-btn"); // Selects the ele
 // Get the initial height of the chat input textarea
 const inputInitHeight = chatInput.scrollHeight; // Retrieves the initial height of the textarea and stores it in the inputInitHeight variable.
 
-// // Get data attribute of script tag
-// const user_sub = document.currentScript.getAttribute('data-uid');
+// Get data attribute of script tag
+const user_sub = document.currentScript.getAttribute('data-uid');
 
 // document.getElementById("widget-header").innerHTML =
 // document.getElementById("widget-version").innerHTML =
@@ -142,7 +142,8 @@ const generateResponse = (incomingChatLi) => {
         },
         body: JSON.stringify({
             pesan: chatHistory,
-            user_sub_s: "0fb90d349d44", // <------------NEED TO BE A DYNAMIC VAR
+            // user_sub_s: "0fb90d349d44", // <------------NEED TO BE A DYNAMIC VAR
+            user_sub_s: user_sub, // <------------A DYNAMIC VAR
             clientUUID: sessionStorage.getItem('client-uuid') // <------------------ Pass the clientUUID to the server
         })
     }).then(response => {
