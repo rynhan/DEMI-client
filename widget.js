@@ -12,7 +12,7 @@ const inputInitHeight = chatInput.scrollHeight; // Retrieves the initial height 
 const user_sub = document.currentScript.getAttribute('data-uid');
 
 // document.getElementById("widget-header").innerHTML =
-// document.getElementById("widget-version").innerHTML =
+document.getElementById("widget-version").innerHTML = "DEMI-AI v3.030225.0";
 // document.getElementById("widget-disclaimer").innerHTML =
 // document.getElementById("widget-initialmessage").innerHTML =
 // document.getElementsByClassName("widget-image").src = 
@@ -132,7 +132,9 @@ const generateResponse = (incomingChatLi) => {
     const messageElement = incomingChatLi.querySelector("div");
 
     // URL for the chat server endpoint
-    var url = "https://demi-server-demi-dev-2bd13100.koyeb.app/chat"; // <--------------------------- DEMI-nodeV3 URL
+    // var url = "https://demi-server-demi-dev-2bd13100.koyeb.app/chat"; // <--------------------------- DEMI-nodeV3 URL
+    // var url = "http://127.0.0.1:8000/chat"; // <--------------------------- DEV environment URL
+    var url = "https://willing-saudra-ryhan-db56e59b.koyeb.app/chat"
 
     // Fetch data from the chat server
     fetch(url, {
@@ -141,10 +143,10 @@ const generateResponse = (incomingChatLi) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            pesan: chatHistory,
-            // user_sub_s: "0fb90d349d44", // <------------NEED TO BE A DYNAMIC VAR
-            user_sub_s: user_sub, // <------------A DYNAMIC VAR
-            clientUUID: sessionStorage.getItem('client-uuid') // <------------------ Pass the clientUUID to the server
+            // user_sub_s: "0fb90d349d44", // <------------NEED TO BE A DYNAMIC VAR (now it is `project_id`)
+            project_id: user_sub, // <------------A DYNAMIC VAR
+            thread_id: sessionStorage.getItem('client-uuid'), // <------------------ Pass the clientUUID to the server
+            query: chatHistory[chatHistory.length - 1].content,
         })
     }).then(response => {
         // Return the response in JSON format
@@ -155,15 +157,17 @@ const generateResponse = (incomingChatLi) => {
         // console.log(data[0].message);
         // // Log only the content of the message
         // console.log(data[0].message.content);
+        var ai_response = data.messages[data.messages.length - 1].content
 
         // Update the innerHTML of the messageElement with the response content, converting URLs to hyperlinks
-        messageElement.innerHTML = toHyperlink(data[0].message.content);
+        messageElement.innerHTML = toHyperlink(ai_response);
 
         // Scroll the chatBox to the bottom
         chatBox.scrollTo(0, chatBox.scrollHeight);
 
         // Push the previous assistant chat into the chatHistory array
-        chatHistory.push(data[0].message);
+        // chatHistory.push(data[0].message); # <------------------ This is the deprecated code
+        chatHistory.push({role:"assistant", content:ai_response});
 
         // Update the chat_
         sessionStorage.setItem('chat_history', JSON.stringify(chatHistory));
