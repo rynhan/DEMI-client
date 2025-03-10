@@ -134,7 +134,7 @@ const generateResponse = (incomingChatLi) => {
     // URL for the chat server endpoint
     // var url = "https://demi-server-demi-dev-2bd13100.koyeb.app/chat"; // <--------------------------- DEMI-nodeV3 URL
     // var url = "http://127.0.0.1:8000/chat"; // <--------------------------- DEV environment URL
-    var url = "https://willing-saudra-ryhan-db56e59b.koyeb.app/chat"
+    var url = "https://bare-anabel-demi-dev-54a862a7.koyeb.app/chat"
 
     // Fetch data from the chat server
     fetch(url, {
